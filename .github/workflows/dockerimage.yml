@@ -30,22 +30,14 @@ jobs:
       run: npm install
     - name: Run build
       run:  npm run build
-    - name: Build the Docker image
-      run: docker build . --file Dockerfile --tag awesome-backend:latest
     - name: Docker Publish
       uses: manusa/actions-publish-docker@v1.0.1 
       with:
         # Name of the Docker image
-        name: awesome-backend
-        # Tag for the Docker image
-        tag: latest
+        name: osamaaamer/awesome-backend
         # Script body to compute tag name for the Docker image, has context as the main function argument
         # Username for Docker registry
         username: $DOCKER_USERNAME
         # Password for Docker registry
         password: $DOCKER_PASSWORD
-        # Registry URL
-        registry: https://hub.docker.com/repository/docker/osamaaamer/awesome-backend
-        # Don't skip pull requests
-        include pull requests: false
       
