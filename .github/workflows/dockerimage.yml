@@ -30,14 +30,15 @@ jobs:
       run: npm install
     - name: Run build
       run:  npm run build
-    - name: Docker Publish
-      uses: manusa/actions-publish-docker@v1.0.1 
+    - name: Docker Push
+      uses: opspresso/action-docker@v0.2.8
       with:
-        # Name of the Docker image
-        name: osamaaamer/awesome-backend
-        # Script body to compute tag name for the Docker image, has context as the main function argument
-        # Username for Docker registry
-        username: $DOCKER_USERNAME
-        # Password for Docker registry
-        password: $DOCKER_PASSWORD
-      
+        args: --docker
+      env:
+        USERNAME: ${{ secrets.DOCKER_USERNAME }}
+        PASSWORD: ${{ secrets.DOCKER_PASSWORD }}
+        DOCKERFILE: "Dockerfile"
+        IMAGE_NAME: "osamaaamer/awesome-backend"
+        TAG_NAME: "v0.0.1"
+        LATEST: "true"
+
