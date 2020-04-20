@@ -17,6 +17,7 @@ jobs:
       with:
         node-version: 10.x
     - name: Bump version and push tag
+      id: bumpVersion
       uses: anothrNick/github-tag-action@master
       env:
         GITHUB_TOKEN: ${{ secrets.BUMP_TAGS_TOKEN }}
