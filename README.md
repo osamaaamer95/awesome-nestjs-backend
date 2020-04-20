@@ -1,6 +1,8 @@
 # awesome-backend
 
 ![CI](https://github.com/osamaaamer95/awesome-backend/workflows/CI/badge.svg?branch=master)
+[![Known Vulnerabilities](https://snyk.io/test/github/osamaaamer95/awesome-backend/badge.svg?targetFile=package.json)](https://snyk.io/test/github/osamaaamer95/awesome-backend?targetFile=package.json)
+[![Coverage Status](https://coveralls.io/repos/github/osamaaamer95/awesome-backend/badge.svg?branch=master)](https://coveralls.io/github/osamaaamer95/awesome-backend?branch=master)
 
 ## Description
 
