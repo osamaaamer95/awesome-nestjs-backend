@@ -1,4 +1,4 @@
-# awesome-backend
+# awesome-nestjs-backend
 
 ![CI](https://github.com/osamaaamer95/awesome-backend/workflows/CI/badge.svg?branch=master)
 [![Known Vulnerabilities](https://snyk.io/test/github/osamaaamer95/awesome-backend/badge.svg?targetFile=package.json)](https://snyk.io/test/github/osamaaamer95/awesome-backend?targetFile=package.json)
