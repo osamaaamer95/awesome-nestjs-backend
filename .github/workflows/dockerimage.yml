@@ -1,0 +1,51 @@
+name: Docker Image CI
+
+on:
+  push:
+    branches: [ master ]
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+    - name: Checkout
+      uses: actions/checkout@v2
+    - name: Setup Node
+      uses: actions/setup-node@v1.4.1
+      with:
+        node-version: 10.x
+    # Restore cache
+    - name: Restore node cache
+      uses: actions/cache@v1
+      env:
+        cache-name: cache-node-modules
+      with:
+        path: ~/.npm # npm cache files are stored in `~/.npm` on Linux/macOS
+        key: ${{ runner.os }}-build-${{ env.cache-name }}-${{ hashFiles('**/package-lock.json') }}
+        restore-keys: |
+          ${{ runner.os }}-build-${{ env.cache-name }}-
+          ${{ runner.os }}-build-
+          ${{ runner.os }}-
+    - name: Install dependencies
+      run: npm install
+    - name: Run build
+      run:  npm run build
+    - name: Build the Docker image
+      run: docker build . --file Dockerfile --tag awesome-backend:latest
+    - name: Docker Publish
+      uses: manusa/actions-publish-docker@v1.0.1 
+      with:
+        # Name of the Docker image
+        name: awesome-backend
+        # Tag for the Docker image
+        tag: latest
+        # Script body to compute tag name for the Docker image, has context as the main function argument
+        # Username for Docker registry
+        username: $DOCKER_USERNAME
+        # Password for Docker registry
+        password: $DOCKER_PASSWORD
+        # Registry URL
+        registry: https://hub.docker.com/repository/docker/osamaaamer/awesome-backend
+        # Don't skip pull requests
+        include pull requests: false
+      
