@@ -19,7 +19,9 @@
     "test:cov": "jest --coverage",
     "test:debug": "node --inspect-brk -r tsconfig-paths/register -r ts-node/register node_modules/.bin/jest --runInBand",
     "test:e2e": "jest --config ./test/jest-e2e.json",
-    "heroku-postbuild": "npm install --only=dev --no-shrinkwrap && npm run build"
+    "heroku-postbuild": "npm install --only=dev --no-shrinkwrap && npm run build",
+    "snyk-protect": "snyk protect",
+    "prepare": "npm run snyk-protect"
   },
   "dependencies": {
     "@nestjs/common": "^7.0.0",
@@ -29,7 +31,8 @@
     "reflect-metadata": "^0.1.13",
     "rimraf": "^3.0.2",
     "rxjs": "^6.5.4",
-    "swagger-ui-express": "^4.1.4"
+    "swagger-ui-express": "^4.1.4",
+    "snyk": "^1.316.1"
   },
   "devDependencies": {
     "@nestjs/cli": "^7.0.0",
@@ -66,5 +69,6 @@
     },
     "coverageDirectory": "../coverage",
     "testEnvironment": "node"
-  }
+  },
+  "snyk": true
 }
