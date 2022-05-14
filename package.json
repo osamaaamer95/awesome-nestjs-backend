@@ -24,7 +24,7 @@
     "prepare": "npm run snyk-protect"
   },
   "dependencies": {
-    "@nestjs/common": "^7.0.0",
+    "@nestjs/common": "^7.5.0",
     "@nestjs/core": "^7.0.0",
     "@nestjs/platform-express": "^7.0.0",
     "@nestjs/swagger": "^4.5.3",
@@ -32,7 +32,7 @@
     "rimraf": "^3.0.2",
     "rxjs": "^6.5.4",
     "swagger-ui-express": "^4.1.4",
-    "snyk": "^1.316.1"
+    "snyk": "^1.465.0"
   },
   "devDependencies": {
     "@nestjs/cli": "^7.0.0",
