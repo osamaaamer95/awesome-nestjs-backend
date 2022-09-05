@@ -32,7 +32,7 @@
     "rimraf": "^3.0.2",
     "rxjs": "^6.5.4",
     "swagger-ui-express": "^4.1.4",
-    "snyk": "^1.316.1"
+    "snyk": "^1.987.0"
   },
   "devDependencies": {
     "@nestjs/cli": "^7.0.0",
